@@ -2,6 +2,7 @@ export default {
   complaint: {
     success: 'Your complaint is registered succesfully!!!'
   },
+  complaint_monitor: 'Complaint management',
   admin: 'administrator',
   user: 'User',
   password: 'Password',

@@ -2,6 +2,7 @@ export default {
   complaint: {
     success: 'Yra rimai aillupi tucui rimaicunaman!!!'
   },
+  complaint_monitor: 'Complaint management',
   user: 'punku',
   password: 'qampa',
   admin: 'simikunaman',

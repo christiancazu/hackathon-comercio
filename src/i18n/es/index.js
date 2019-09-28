@@ -2,6 +2,7 @@ export default {
   complaint: {
     success: 'Su denuncia fue registrada con éxito!!!'
   },
+  complaint_monitor: 'Monitoreo de denuncias',
   user: 'Usuario',
   password: 'Contraseña',
   admin: 'administrador',
