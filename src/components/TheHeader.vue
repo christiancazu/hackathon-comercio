@@ -1,15 +1,11 @@
 <template>
   <div>
-    <q-scroll-observer
-      @scroll="scrollHandler" />
+    <q-scroll-observer @scroll="scrollHandler" />
+
     <q-header
       id="home"
-      :elevated="onScrollHeaderBg"
-      class="row justify-center transition"
-      :class="{
-        'fill-transparent': !onScrollHeaderBg || currentRoutePath === '/',
-        'fill-color-comercio': onScrollHeaderBg
-      }"
+      elevated
+      class="row justify-center transition fill-color-comercio"
     >
       <q-toolbar class="col-md-10">
         <q-btn
@@ -47,12 +43,7 @@
         >
           <q-item-section>
             <q-item-label
-              class="text-h6 font-nav transition"
-              :class="{
-                'on-transparent-bg': onScrollHeaderBg && currentRoutePath !== '/',
-                'on-color-bg': !onScrollHeaderBg && currentRoutePath === '/'
-              }"
-              :style="currentRoutePath !== '/' || onScrollHeaderBg ? 'color: black' : ''"
+              class="text-h6 font-nav transition text-black"
             >
               {{ $t(nav) }}
             </q-item-label>
@@ -61,8 +52,27 @@
 
         <!-- locale-dropdown component -->
         <locale-dropdown
-          :on-scroll-header-bg="onScrollHeaderBg || currentRoutePath !== '/'"
           gt-sm />
+
+        <q-item
+          clickable
+          class="gt-sm text-capitalize"
+          @click="showLogin"
+        >
+          <q-item-section avatar>
+            <q-icon
+              color="primary" name="account_circle"
+              style="font-size: 36px; color: black !important"  />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label
+              class="text-h6 font-nav transition"
+              style="color: black"
+            >
+              {{ $t(currentLogin) }}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
 
       </q-toolbar>
     </q-header>
@@ -70,8 +80,9 @@
     <!-- sidebar -->
     <q-drawer
       v-model="leftDrawerOpen"
-      :width="160"
+      :width="120"
       content-class="bg-grey-2"
+      behavior="mobile"
     >
       <q-list>
         <!-- <q-item-label header>Essential Links</q-item-label> -->
@@ -81,7 +92,7 @@
           :to="{ name: nav }"
           exact
           exact-active-class
-          class="text-center text-capitalize text-dark"
+          class="text-center text-capitalize text-dark text-bold"
         >
           <q-item-section>
             <q-item-label>{{ $t(nav) }}</q-item-label>
@@ -90,9 +101,46 @@
 
         <!-- locale-dropdown component -->
         <locale-dropdown arrow-right />
+
+        <q-item
+          clickable
+          @click="showLogin"
+          class="text-center text-capitalize text-dark text-bold"
+        >
+          <q-item-section>
+            <q-item-label>{{ $t(currentLogin) }}</q-item-label>
+          </q-item-section>
+        </q-item>
+
       </q-list>
     </q-drawer>
-
+    <q-dialog v-model="card">
+      <q-card class="row justify-center full-width">
+            <q-img
+              class="col-6"
+              src="statics/logo-card.png"
+              />
+          <div class="col-6 q-pa-md">
+            <h6 class="text-accent text-center text-capitalize">{{ $t('login') }}</h6>
+            <q-input
+              class="q-my-sm"
+              :label="`${$t('user')}`"
+            />
+            <q-input
+            type="password"
+              class="q-my-sm"
+              :label="`${$t('password')}`"
+            />
+            <q-btn
+              color="primary"
+              class="full-width q-my-sm"
+              :label="`${$t('identificar')}`"
+              push glossy
+              @click="toAdminView"
+            />
+          </div>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
@@ -109,7 +157,9 @@ export default {
       iconImgPath: 'statics/comercio-logo.webp',
       sizeVH: 0,
       onScrollHeaderBg: false,
-      currentRoutePath: ''
+      currentRoutePath: '',
+      card: false,
+      currentLogin: 'login'
     }
   },
   mounted () {
@@ -119,6 +169,11 @@ export default {
     '$route.path' (val) {
       console.error(val)
       this.currentRoutePath = val
+      if (val === '/admin') {
+        this.currentLogin = 'admin'
+      } else {
+        this.currentLogin = 'login'
+      }
     }
   },
   methods: {
@@ -128,6 +183,12 @@ export default {
       } else {
         this.onScrollHeaderBg = false
       }
+    },
+    showLogin () {
+      this.card = true
+    },
+    toAdminView () {
+      this.$router.push({ name: 'admin' })
     }
   },
   computed: {

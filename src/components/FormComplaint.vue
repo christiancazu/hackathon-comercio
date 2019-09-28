@@ -1,114 +1,121 @@
 <template>
-  <div class="row justify-center">
+  <div class="row justify-center q-my-xl">
+    <q-form class="col-12 col-md-10 bg-white q-mb-xl shadow-1">
+      <div class="row justify-center q-mb-lg">
+        <div class="col-12">
+          <q-card class="my-card">
+            <q-parallax
+              src="statics/images/denuncia.jpg"
+              :max-height="200"
+            >
+              <div
+                class="absolute-bottom text-subtitle1 text-center q-py-lg"
+                style="background-color: rgba(0, 0, 0, .5)">
+                <p class="text-h4 text-white">{{ $t('complaint_record') }}</p>
+              </div>
+            </q-parallax>
 
-    <section-title :text="$t('complaint_record')" class="col-12 q-mt-xl"/>
-
-    <q-form
-      class="col-10 col-md-8 bg-white q-mb-xl">
-
-      <div class="row justify-center q-my-lg">
-        <div class="col-8 text-center">
-          <q-badge color="primary">
-            <div class="text-h6">Datos del denunciante</div>
-          </q-badge>
-        </div>
-      </div>
-      <div class="row justify-center q-gutter-md q-my-lg">
-        <div class="col-8 col-md-4">
-          <q-select
-            v-model="tipoDocumento"
-            :options="tipoDocumentoOptions"
-            label="Tipo de documento"
-          />
-        </div>
-        <div class="col-8 col-md-4">
-          <q-input
-            type="number"
-            v-model="dni"
-            label="Nº Documento"
-            @input="onInputDni"
-          />
-        </div>
-      </div>
-      <div class="row justify-center q-gutter-md q-my-lg">
-        <div class="col-8">
-          <q-input
-            v-model="nombre"
-            disable
-            label="Nombres"
-          />
-        </div>
-      </div>
-      <div class="row justify-center q-gutter-md q-my-lg">
-        <div class="col-8 col-md-4">
-          <q-input
-            v-model="apellidoPaterno"
-            disable
-            label="Apellido paterno"
-          />
-        </div>
-        <div class="col-8 col-md-4">
-          <q-input
-            v-model="apellidoMaterno"
-            disable
-            label="Apellido materno"
-          />
-        </div>
-      </div>
-      <div class="row justify-center q-gutter-md q-my-lg">
-        <div class="col-8 col-md-4">
-          <q-select
-            v-model="sexo"
-            disable
-            :options="sexoOptions"
-            label="Sexo"
-          />
-        </div>
-        <div class="col-8 col-md-4">
-          <q-select
-            v-model="estadoCivil"
-            disable
-            :options="estadoCivilOptions"
-            label="Estado civil"
-          />
-        </div>
-      </div>
-      <div class="row justify-center q-gutter-md q-my-lg">
-        <div class="col-8 col-md-4">
-          <q-input
-            v-model="direccion"
-            disable
-            label="Direccion"
-          />
-        </div>
-        <div class="col-8 col-md-4">
-          <q-input
-            v-model="fechaNac"
-            disable
-            label="Fecha de nacimiento"
-          />
-        </div>
-      </div>
-      <div class="row justify-center q-gutter-lg q-my-lg">
-        <div class="col-8">
-          <q-input
-            v-model="descripcion"
-            type="textarea"
-            autogrow
-            label="Indique su denuncia"
-          />
-        </div>
-      </div>
-      <div class="row justify-center q-gutter-lg q-my-lg">
-        <div class="col-8">
-          <q-btn
-            :loading="isBusy"
-            color="primary"
-            label="Registrar"
-            class="full-width"
-            push glossy
-            @click="onSubmit"
-          />
+            <q-card-section>
+              <div class="row justify-center q-gutter-md q-my-lg">
+                <div class="col-8 col-md-4">
+                  <q-select
+                    v-model="tipoDocumento"
+                    :options="tipoDocumentoOptions"
+                    label="Tipo de documento"
+                  />
+                </div>
+                <div class="col-8 col-md-4">
+                  <q-input
+                    type="number"
+                    v-model="dni"
+                    label="Nº Documento"
+                    @input="onInputDni"
+                  />
+                </div>
+              </div>
+              <div class="row justify-center q-gutter-md q-my-lg">
+                <div class="col-8">
+                  <q-input
+                    v-model="nombre"
+                    disable
+                    label="Nombres"
+                  />
+                </div>
+              </div>
+              <div class="row justify-center q-gutter-md q-my-lg">
+                <div class="col-8 col-md-4">
+                  <q-input
+                    v-model="apellidoPaterno"
+                    disable
+                    label="Apellido paterno"
+                  />
+                </div>
+                <div class="col-8 col-md-4">
+                  <q-input
+                    v-model="apellidoMaterno"
+                    disable
+                    label="Apellido materno"
+                  />
+                </div>
+              </div>
+              <div class="row justify-center q-gutter-md q-my-lg">
+                <div class="col-8 col-md-4">
+                  <q-select
+                    v-model="sexo"
+                    disable
+                    :options="sexoOptions"
+                    label="Sexo"
+                  />
+                </div>
+                <div class="col-8 col-md-4">
+                  <q-select
+                    v-model="estadoCivil"
+                    disable
+                    :options="estadoCivilOptions"
+                    label="Estado civil"
+                  />
+                </div>
+              </div>
+              <div class="row justify-center q-gutter-md q-my-lg">
+                <div class="col-8 col-md-4">
+                  <q-input
+                    v-model="direccion"
+                    disable
+                    label="Direccion"
+                  />
+                </div>
+                <div class="col-8 col-md-4">
+                  <q-input
+                    v-model="fechaNac"
+                    disable
+                    label="Fecha de nacimiento"
+                  />
+                </div>
+              </div>
+              <div class="row justify-center q-gutter-lg q-my-lg">
+                <div class="col-8">
+                  <q-input
+                    v-model="descripcion"
+                    type="textarea"
+                    autogrow
+                    label="Indique su denuncia"
+                  />
+                </div>
+              </div>
+              <div class="row justify-center q-gutter-lg q-my-lg">
+                <div class="col-8">
+                  <q-btn
+                    :loading="isBusy"
+                    color="primary"
+                    :label="`${$t('register')}`"
+                    class="full-width"
+                    push glossy
+                    @click="onSubmit"
+                  />
+                </div>
+              </div>
+            </q-card-section>
+          </q-card>
         </div>
       </div>
     </q-form>
@@ -117,6 +124,7 @@
 
 <script>
 import { axiosInstance } from '@/boot/axios'
+import Swal from 'sweetalert2'
 
 export default {
   data () {
@@ -171,6 +179,14 @@ export default {
         console.log('error', error)
       } finally {
         this.isBusy = false
+        Swal.fire({
+          position: 'center',
+          type: 'success',
+          title: `<h6 class="q-ma-none text-justify text-h6">
+                    ${this.$t('complaint.success')}
+                  </h6>`,
+          showConfirmButton: true
+        })
       }
     },
     getAge (dateString) {

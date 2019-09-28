@@ -1,4 +1,12 @@
 export default {
+  complaint: {
+    success: 'Su denuncia fue registrada con éxito!!!'
+  },
+  user: 'Usuario',
+  password: 'Contraseña',
+  admin: 'administrador',
+  identificar: 'identificar',
+  register: 'registrar',
   complaint_record: 'Registrar denuncias',
   voice_community: 'La voz de la comunidad',
   t_1: 'Responsabilidad Social',
@@ -7,7 +15,7 @@ export default {
   m_2: 'No es nada nuevo decir que la Responsabilidad Social supone un valor añadido, pero también una obligación para las empresas mineras, las cuales se encuentran constantemente en tensión con comunidades o villas en las que se asienta un proyecto de excavación.\nA través de esta actividad, las empresas mineras contribuyen activamente con el desarrollo de las capacidades locales con las que conviven, con la protección del ambiente, con el respeto a las identidades culturales y con los valores sociales.',
   t_3: 'El fin de estas prácticas',
   m_3: 'Es buscar el desarrollo sostenible de los pueblos donde operan las empresas, a través del aporte social de la minería. Asimismo, brinda oportunidades de acceso a la población a diversos bienes y servicios. Al cubrir su necesidad de energía eléctrica hace factible la conexión de poblaciones alejadas a este servicio y al demandar mano de obra genera empleo directo e indirecto, a través de la demanda por bienes y servicios que proviene de los trabajadores y de la empresa minera.',
-  ttt_1: 'Minería sustentable',
+  ttt_1: 'Conoce tu comisaría más cercana',
   mmm_1: 'Es el desarrollo que satisface las necesidades actuales de las personas sin comprometer la capacidad de las futuras generaciones para satisfacer las suyas. El impacto que genera la minería en el ambiente no es sinónimo de contaminación ya que puede prevenirse usando tecnología moderna e implementando programas de gestión ambiental y de responsabilidad social',
   tt_1: 'Ecosistema',
   tt_2: 'Social',

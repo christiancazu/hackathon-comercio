@@ -1,4 +1,12 @@
 export default {
+  complaint: {
+    success: 'Yra rimai aillupi tucui rimaicunaman!!!'
+  },
+  user: 'punku',
+  password: 'qampa',
+  admin: 'simikunaman',
+  identificar: 'akllaykuy',
+  register: 'aillupi',
   complaint_record: 'Qallarinapaq qampa',
   voice_community: 'Kunka ankuqala',
   t_1: 'Qallarinapaq akllaykuy',
@@ -7,7 +15,7 @@ export default {
   m_2: 'Caica Quechua rimai aillupi tucui rimaicunaman yaicuna pungumi. Cai aillupica quechua rimaicunapish quichua rimaicunapish inga rimaicunapishmi tiyan. Cunancama yana numerota yana letrata charij rimaicunallami paipaj quiquin p\'angata charin First select your home region on the small map. Then select the language you speak on the large map. This is the gateway to all the languages in the Quechuan language family, including Quechua, Quichua and Inga.',
   t_3: 'Qallarinapaq akllaykuy',
   m_3: 'Kaymi Quechua simi ayllupi tukuy simikunaman yaykuna punku. Kay ayllupiqa quechuasimikuna, qeshwa simikuna, qheswa simikuna, quichua simikuna, chaynataq  simikunapas tarikun. Kunankamam kay yana numeropi chaynataq yana sutipi kachkan runa siminchikpi página yachaykunapaq.',
-  ttt_1: 'huya rurana',
+  ttt_1: 'Huya rurana tukuy simikunaman punku',
   mmm_1: 'Kaymi Quechua simi ayllupi tukuy simikunaman yaykuna punku. Kay ayllupiqa quechuasimikuna, qeshwa simikuna, qheswa simikuna, quichua simikuna, chaynataq  simikunapas tarikun. Kunankamam kay yana numeropi chaynataq yana sutipi kachkan runa siminchikpi página yachaykunapaq.',
   tt_1: 'Callaringapaj uchilla',
   tt_2: 'Atawqay',

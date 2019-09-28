@@ -4,12 +4,10 @@
     :menu-anchor="menuAnchor"
     flat stretch
     icon="language"
-    class="text-h6"
+    class="text-h6 text-black"
     :class="{
       'gt-sm': gtSm,
-      'arrow-right full-width q-py-md': arrowRight,
-      'on-transparent-bg': onScrollHeaderBg,
-      'on-color-bg': !onScrollHeaderBg
+      'arrow-right full-width q-py-md': arrowRight
     }"
     :style="arrowRight ? 'text-shadow: none' : ''"
   >
@@ -17,10 +15,13 @@
       <q-item
         v-for="(value, index) in locales" :key="index"
         clickable v-close-popup
-        class="text-center"
+        class="text-center text-dark"
       >
         <q-item-section>
-          <q-item-label @click="setLocale(value)">
+          <q-item-label
+            @click="setLocale(value)"
+            class="text-dark text-black"
+          >
             {{ value | languageName }}
           </q-item-label>
         </q-item-section>
@@ -63,10 +64,10 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 /* nav dropdown opacity no active */
 .q-btn__content {
-  // opacity: .8
+  color: black !important
 }
 /* customs modifications to arrow direction on dropdown */
 /* dropdown arrow */

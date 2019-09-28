@@ -1,5 +1,6 @@
 import homePage from './pages/home'
 import Complaints from './pages/complaints'
+import Admin from './pages/admin'
 
 const routes = [
   {
@@ -7,7 +8,8 @@ const routes = [
     component: () => import('layouts/BaseLayout.vue'),
     children: [
       homePage,
-      Complaints
+      Complaints,
+      Admin
     ]
   }
 ]
