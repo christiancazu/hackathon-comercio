@@ -1,50 +1,49 @@
 <template>
   <q-form ref="myForm">
     <div class="row justify-center q-gutter-md q-my-lg">
-      <div class="col-10 col-md-4">
+      <div class="col-8 col-md-4">
         <q-select
           v-model="tipoDocumento"
-          :options="options"
+          :options="tipoDocumentoOptions"
           label="Tipo de documento"
         />
       </div>
-      <div class="col-10 col-md-5">
+      <div class="col-8 col-md-4">
         <q-input
           type="number"
           v-model="dni"
           label="Nº Documento"
-          :dense="dense"
+          @input="onInputDni"
         />
       </div>
     </div>
-    <div class="row justify-center q-gutter-sm q-my-lg">
-      <div class="col-10 col-md-3">
+    <div class="row justify-center q-gutter-md q-my-lg">
+      <div class="col-8">
         <q-input
           v-model="nombre"
           disable
           label="Nombres"
-          :dense="dense"
-        />
-      </div>
-      <div class="col-10 col-md-3">
-        <q-input
-          v-model="apellidoMaterno"
-          disable
-          label="Apellido paterno"
-          :dense="dense"
-        />
-      </div>
-      <div class="col-10 col-md-3">
-        <q-input
-          v-model="apellidoPaterno"
-          disable
-          label="Apellido materno"
-          :dense="dense"
         />
       </div>
     </div>
-    <div class="row justify-center q-gutter-sm q-my-lg">
-      <div class="col-10 col-md-3">
+    <div class="row justify-center q-gutter-md q-my-lg">
+      <div class="col-8 col-md-4">
+        <q-input
+          v-model="apellidoPaterno"
+          disable
+          label="Apellido paterno"
+        />
+      </div>
+      <div class="col-8 col-md-4">
+        <q-input
+          v-model="apellidoMaterno"
+          disable
+          label="Apellido materno"
+        />
+      </div>
+    </div>
+    <div class="row justify-center q-gutter-md q-my-lg">
+      <div class="col-8 col-md-4">
         <q-select
           v-model="sexo"
           disable
@@ -52,15 +51,17 @@
           label="Sexo"
         />
       </div>
-      <div class="col-10 col-md-3">
+      <div class="col-8 col-md-4">
         <q-select
           v-model="estadoCivil"
           disable
-          :options="sexoOptions"
+          :options="estadoCivilOptions"
           label="Estado civil"
         />
       </div>
-      <div class="col-10 col-md-3">
+    </div>
+    <div class="row justify-center q-gutter-md q-my-lg">
+      <div class="col-8 col-md-4">
         <q-select
           v-model="lenguaMaterna"
           disable
@@ -68,13 +69,31 @@
           label="Lengua materna"
         />
       </div>
+      <div class="col-8 col-md-4">
+        <q-input
+          v-model="fechaNac"
+          disable
+          label="Fecha de nacimiento"
+        />
+      </div>
     </div>
-    <div class="row justify-center q-gutter-sm q-my-lg">
-      <div class="col-10">
+    <div class="row justify-center q-gutter-lg q-my-lg">
+      <div class="col-8">
         <q-input
           v-model="descripcion"
           type="textarea"
+          autogrow
           label="Descripción"
+        />
+      </div>
+    </div>
+    <div class="row justify-center q-gutter-lg q-my-lg">
+      <div class="col-8">
+        <q-btn
+          color="primary"
+          label="Descripción"
+          class="full-width"
+          @click="onSubmit"
         />
       </div>
     </div>
@@ -82,11 +101,43 @@
 </template>
 
 <script>
+import { axiosInstance } from '@/boot/axios'
+
 export default {
   data () {
     return {
-      model: null,
-      options: ['DNI', 'CE']
+      tipoDocumentoOptions: ['DNI', 'CE'],
+      sexoOptions: [],
+      estadoCivilOptions: [],
+      lenguaOptions: [],
+      lenguaMaterna: '',
+      estadoCivil: '',
+      tipoDocumento: '',
+      sexo: '',
+      dni: '',
+      nombre: '',
+      apellidoPaterno: '',
+      apellidoMaterno: '',
+      fechaNac: '',
+      descripcion: ''
+    }
+  },
+  methods: {
+    async onInputDni () {
+      if (this.dni.length > 7) {
+        const { data } = await axiosInstance.get(process.env.SIOJ_API + this.dni)
+        // eslint-disable-next-line no-eval
+        const dataJson = eval(data)[0]
+        console.log('result ', dataJson)
+        this.nombre = dataJson.NOMBRE
+      }
+    },
+    async onSubmit () {
+      const { data } = await axiosInstance.post(process.env.BACKEND_API, {
+        nombre: this.nombre,
+
+      }) 
+      console.data
     }
   }
 }
