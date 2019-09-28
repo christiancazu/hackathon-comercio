@@ -16,8 +16,15 @@
             </q-parallax>
 
             <q-card-section>
-              <div class="row justify-center q-gutter-lg q-my-lg">
-                <div class="col-4">
+              <div class="row justify-between q-my-lg fix-center">
+                <div class="col-md-4 color-content">
+                    <div class="sem-red"><div class="s-red"></div>asdasdasd</div>
+                </div>
+                <div class="col-md-4 color-content">
+                    <div class="sem-orange">asdasdasd</div>
+                </div>
+                <div class="col-md-4 color-content">
+                    <div class="sem-green">asdasdasd</div>
                 </div>
                 <!-- <div class="col-8">
                   <q-btn
@@ -43,3 +50,31 @@ export default {
 
 }
 </script>
+
+<style lang="stylus">
+.sphere {
+  min-height: 4rem;
+  max-width: 4rem;
+  border-radius: 50%;
+}
+.fix-center {
+  display: flex;
+  align-content: space-between
+}
+.color-content {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+.sem-red, .sem-orange, .sem-green {
+  text-align: center;
+}
+.sem-red {
+  margin: 0 auto;
+}
+.s-red {
+  width: 4rem;
+  height: 4rem;
+  background-color: red;
+}
+</style>
