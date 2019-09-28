@@ -1,13 +1,15 @@
 <template>
   <div>
     <q-scroll-observer
-      v-if="$route.path === '/'"
       @scroll="scrollHandler" />
     <q-header
       id="home"
       :elevated="onScrollHeaderBg"
-      class="row justify-center"
-      :class="currentRoutePath !== '/' ? 'fill-color-comercio' : 'fill-transparent'"
+      class="row justify-center transition"
+      :class="{
+        'fill-transparent': !onScrollHeaderBg || currentRoutePath === '/',
+        'fill-color-comercio': onScrollHeaderBg
+      }"
     >
       <q-toolbar class="col-md-10">
         <q-btn
@@ -25,12 +27,12 @@
           :class="{
             'full-width q-pl-none absolute-center' : isScreenMd
           }"
-          class="flex"
+          class="flex q-ml-xl"
           style="max-width: 50px; max-heigth: 24px"
         >
           <img
             :src="avatarImgPath"
-            :style="isScreenMd ? 'height: 48px' : 'height: 78px'"
+            :style="isScreenMd ? 'height: 26px' : 'height: 32px'"
           >
         </q-btn>
 
@@ -45,11 +47,13 @@
         >
           <q-item-section>
             <q-item-label
-              class="text-h6 font-nav"
+              class="text-h6 font-nav transition"
               :class="{
-                'on-transparent-bg': onScrollHeaderBg,
-                'on-color-bg': !onScrollHeaderBg
-              }">
+                'on-transparent-bg': onScrollHeaderBg && currentRoutePath !== '/',
+                'on-color-bg': !onScrollHeaderBg && currentRoutePath === '/'
+              }"
+              :style="currentRoutePath !== '/' || onScrollHeaderBg ? 'color: black' : ''"
+            >
               {{ $t(nav) }}
             </q-item-label>
           </q-item-section>
@@ -57,7 +61,7 @@
 
         <!-- locale-dropdown component -->
         <locale-dropdown
-          :on-scroll-header-bg="onScrollHeaderBg"
+          :on-scroll-header-bg="onScrollHeaderBg || currentRoutePath !== '/'"
           gt-sm />
 
       </q-toolbar>
@@ -101,8 +105,8 @@ export default {
       navs: ['home', 'complaints'],
       appName: process.env.APP_NAME,
       leftDrawerOpen: false,
-      avatarImgPath: 'statics/logo.png',
-      iconImgPath: 'statics/icons/ba4dfc0ede2db9337c4fcf82bedf78d6.png',
+      avatarImgPath: 'statics/comercio-logo.webp',
+      iconImgPath: 'statics/comercio-logo.webp',
       sizeVH: 0,
       onScrollHeaderBg: false,
       currentRoutePath: ''
@@ -113,6 +117,7 @@ export default {
   },
   watch: {
     '$route.path' (val) {
+      console.error(val)
       this.currentRoutePath = val
     }
   },
@@ -135,12 +140,14 @@ export default {
 
 <style scoped>
 .fill-color-comercio {
-  background-color: #f7c600
+  background-color: #f7c600;
 }
 .fill-transparent {
-  background-color: transparent
+  background-color: transparent;
 }
-
+.transition {
+  transition: all 1.5s
+}
 /* navs text styles for active/no active link */
 /*.q-item {
   color: #000;

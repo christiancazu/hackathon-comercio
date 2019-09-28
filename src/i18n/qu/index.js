@@ -1,4 +1,5 @@
 export default {
+  complaint_record: 'Qallarinapaq qampa',
   voice_community: 'Kunka ankuqala',
   t_1: 'Qallarinapaq akllaykuy',
   m_1: 'Uchuy mapapi qampa llaqtaykita. Hinaspa akllaykuy hatun mapapi qampa rimasqayki simita Kaymi Quechua simi ayllupi tukuy simikunaman yaykuna punku. Kay ayllupiqa quechuasimikuna, qeshwa simikuna, qheswa simikuna, quichua simikuna, chaynataq inga simikunapas tarikun. Kunankamam kay yana numeropi chaynataq yana sutipi kachkan runa siminchikpi página yachaykunapaq Caica Quechua rimai aillupi tucui rimaicunaman yaicuna pungumi.',
@@ -41,6 +42,7 @@ export default {
   },
   responsability: 'rurana',
   home: 'qallariy',
+  complaints: 'ayllupi',
   sustainable: 'mikhuchiy',
   suggestions: 'qhawarichisqa',
   correct: 'Correcto',

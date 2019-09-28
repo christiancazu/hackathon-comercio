@@ -1,4 +1,5 @@
 export default {
+  complaint_record: 'Registrar denuncias',
   voice_community: 'La voz de la comunidad',
   t_1: 'Responsabilidad Social',
   m_1: 'La Responsabilidad Social Empresarial es la gestión ética de una empresa que busca la coherencia entre crecimiento económico, el soporte cultural, la equidad social y el cuidado del medio ambiente de un determinado lugar. En la industria minera, esta es la clave para la comunión de las empresas con las comunidades.',
@@ -41,6 +42,7 @@ export default {
   },
   responsability: 'responsabilidad',
   home: 'inicio',
+  complaints: 'denuncias',
   sustainable: 'Sostenibilidad',
   suggestions: 'sugerencias',
   correct: 'Correcto',

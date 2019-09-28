@@ -14,6 +14,8 @@
 
     <banner-home />
 
+    <section-title :text="$t('ttt_1')"/>
+
     <iframe
       frameborder="0"
       height="700px"

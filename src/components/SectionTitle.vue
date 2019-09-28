@@ -1,5 +1,5 @@
 <template>
-  <u-animate-container class="q-my-xl">
+  <u-animate-container>
     <u-animate
       name="zoomIn"
       delay=".5s"
@@ -8,9 +8,8 @@
       :offset="0"
       animateClass="animated"
       :begin="false"
-      class="col-xs-12"
     >
-      <h1 class="text-center">{{ text }}</h1>
+      <h2 class="text-center">{{ text }}</h2>
     </u-animate>
   </u-animate-container>
 </template>

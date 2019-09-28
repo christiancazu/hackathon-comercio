@@ -14,19 +14,24 @@
         :name="bannerImg.name"
         class="column no-wrap flex-center"
       >
-        <div class="q-mt-md text-center">
-          <transition name="fadeOne">
-            <div v-show="bannerImgs[0].showTittles" class="container">
-              <p class="One">{{ $t(`banner_tittle_one.primary`) }}</p>
-            </div>
-            </transition>
-            <transition name="fadeTwo">
-            <div v-show="bannerImgs[0].showTittles" class="container">
-              <p class="Two">{{ $t(`banner_tittle_one.secondary`) }}</p>
-            </div>
-          </transition>
-        </div>
       </q-carousel-slide>
+      <template v-slot:control>
+        <q-carousel-control
+          position="center full-width">
+          <div class="text-center">
+            <transition name="fadeOne">
+              <div v-show="bannerImgs[0].showTittles" class="container">
+                <p class="One">{{ $t(`banner_tittle_one.primary`) }}</p>
+              </div>
+              </transition>
+              <transition name="fadeTwo">
+              <div v-show="bannerImgs[0].showTittles" class="container">
+                <p class="Two">{{ $t(`banner_tittle_one.secondary`) }}</p>
+              </div>
+            </transition>
+          </div>
+        </q-carousel-control>
+      </template>
     </q-carousel>
 </template>
 <script>
@@ -36,7 +41,7 @@ export default {
     return {
       slide: 1,
       bannerImgs: [
-        { showTittles: false, name: 1, src: 'statics/mine/mine-1.jpg', order: 'one' },
+        { showTittles: false, name: 1, src: 'statics/images/slider-1.jpeg', order: 'one' },
         { showTittles: false, name: 2, src: 'statics/mine/mine-2.jpg', order: 'two' },
         { showTittles: false, name: 3, src: 'statics/mine/mine-3.jpg', order: 'tree' }
       ]

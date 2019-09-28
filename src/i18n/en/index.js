@@ -1,4 +1,5 @@
 export default {
+  complaint_record: 'Complaint record',
   voice_community: 'Voice community',
   t_1: 'Social responsability',
   m_1: 'Corporate Social Responsibility is the ethical management of a company that seeks coherence between economic growth, cultural support, social equity and environmental care of a particular place. In the mining industry, this is the key to the communion of companies with communities.',
@@ -41,6 +42,7 @@ export default {
   },
   responsability: 'responsability',
   home: 'home',
+  complaints: 'complaints',
   sustainable: 'sustainable',
   suggestions: 'suggestions',
   correct: 'Correct',
