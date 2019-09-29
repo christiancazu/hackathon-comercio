@@ -6,6 +6,7 @@ export default {
   user: 'Usuario',
   password: 'Contraseña',
   admin: 'administrador',
+  login: 'Iniciar Sesión',
   identificar: 'identificar',
   register: 'registrar',
   complaint_record: 'Registrar denuncias',

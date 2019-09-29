@@ -5,7 +5,7 @@
       navigation infinite autoplay
       transition-prev="slide-right"
       transition-next="slide-left"
-      class="banner-full-screen"
+      style="margin-top: 3.2rem; min-height: 90vh; max-width: 120vw"
     >
       <q-carousel-slide
         v-for="(bannerImg, index) in bannerImgs"
@@ -15,23 +15,6 @@
         class="column no-wrap flex-center"
       >
       </q-carousel-slide>
-      <template v-slot:control>
-        <q-carousel-control
-          position="center full-width">
-          <div class="text-center">
-            <transition name="fadeOne">
-              <div v-show="bannerImgs[0].showTittles" class="container">
-                <p class="One">{{ $t(`banner_tittle_one.primary`) }}</p>
-              </div>
-              </transition>
-              <transition name="fadeTwo">
-              <div v-show="bannerImgs[0].showTittles" class="container">
-                <p class="Two">{{ $t(`banner_tittle_one.secondary`) }}</p>
-              </div>
-            </transition>
-          </div>
-        </q-carousel-control>
-      </template>
     </q-carousel>
 </template>
 <script>
@@ -41,9 +24,9 @@ export default {
     return {
       slide: 1,
       bannerImgs: [
-        { showTittles: false, name: 1, src: 'statics/images/slider-1.jpeg', order: 'one' },
-        { showTittles: false, name: 2, src: 'statics/mine/mine-2.jpg', order: 'two' },
-        { showTittles: false, name: 3, src: 'statics/mine/mine-3.jpg', order: 'tree' }
+        { showTittles: false, name: 1, src: 'statics/images/slider-11.jpg', order: 'one' },
+        { showTittles: false, name: 2, src: 'statics/images/slider-6.jpeg', order: 'two' },
+        { showTittles: false, name: 3, src: 'statics/images/slider-5.png', order: 'tree' }
       ]
     }
   },
@@ -68,7 +51,7 @@ export default {
 
 <style scoped>
 .banner-full-screen {
-  min-height: 95vh;
+  min-height: 100vh;
   min-width: 100vw;
   /* background-color: #000; */
 }

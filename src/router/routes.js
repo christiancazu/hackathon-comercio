@@ -1,6 +1,7 @@
 import homePage from './pages/home'
 import Complaints from './pages/complaints'
 import Admin from './pages/admin'
+import Monitor from './pages/monitor'
 
 const routes = [
   {
@@ -9,7 +10,8 @@ const routes = [
     children: [
       homePage,
       Complaints,
-      Admin
+      Admin,
+      Monitor
     ]
   }
 ]

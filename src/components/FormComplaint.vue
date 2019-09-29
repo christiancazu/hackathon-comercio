@@ -68,11 +68,10 @@
                   />
                 </div>
                 <div class="col-8 col-md-4">
-                  <q-select
-                    v-model="estadoCivil"
+                  <q-input
+                    v-model="fechaNac"
                     disable
-                    :options="estadoCivilOptions"
-                    label="Estado civil"
+                    label="Fecha de nacimiento"
                   />
                 </div>
               </div>
@@ -85,10 +84,10 @@
                   />
                 </div>
                 <div class="col-8 col-md-4">
-                  <q-input
-                    v-model="fechaNac"
-                    disable
-                    label="Fecha de nacimiento"
+                  <q-select
+                    v-model="tipo"
+                    :options="tiposRoboOptions"
+                    label="Tipo de robo"
                   />
                 </div>
               </div>
@@ -131,10 +130,10 @@ export default {
     return {
       tipoDocumentoOptions: ['DNI', 'CE'],
       sexoOptions: [],
-      estadoCivilOptions: [],
+      tiposRoboOptions: [ 'simple', 'agrabado' ],
       lenguaOptions: [],
       lenguaMaterna: '',
-      estadoCivil: '',
+      tipo: '',
       tipoDocumento: '',
       sexo: '',
       dni: '',
@@ -172,7 +171,8 @@ export default {
           dni: this.dni,
           apellidos: this.apellidoPaterno + ' ' + this.apellidoMaterno,
           edad: this.getAge(this.fechaNac),
-          sexo: this.sexo[0]
+          sexo: this.sexo[0],
+          tipo: this.tipo
         })
         console.log('result', result)
       } catch (error) {

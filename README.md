@@ -1,3 +1,3 @@
-# HACKATHON PERUMIN APP WEB
+# HACKATHON INTERCORP-COMERCIO APP WEB
 
-aplicación web minería responsable
+aplicación web incidencias de robo

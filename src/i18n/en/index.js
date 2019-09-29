@@ -6,6 +6,7 @@ export default {
   admin: 'administrator',
   user: 'User',
   password: 'Password',
+  login: 'Login',
   identificar: 'authenticate',
   register: 'register',
   complaint_record: 'Complaint record',

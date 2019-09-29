@@ -7,6 +7,7 @@ export default {
   password: 'qampa',
   admin: 'simikunaman',
   identificar: 'akllaykuy',
+  login: 'Simi ayllupi',
   register: 'aillupi',
   complaint_record: 'Qallarinapaq qampa',
   voice_community: 'Kunka ankuqala',
