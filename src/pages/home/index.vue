@@ -14,6 +14,17 @@
 
     <banner-home />
 
+    <div class="row justify-center">
+      <div class="col-10">
+        <q-btn
+          color="primary"
+          class="full-width q-my-xl"
+          label="VER MIS DENUNCIAS"
+          :to="{ name: 'monitor' }"
+        />
+      </div>
+    </div>
+
     <section-title :text="$t('ttt_1')"/>
 
     <iframe
